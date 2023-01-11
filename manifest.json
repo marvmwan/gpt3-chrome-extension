@@ -13,9 +13,26 @@
     "default_popup": "index.html",
     "default_title": "Generate blog post"
   },
+  "background": {
+    "service_worker": "scripts/contextMenuServiceWorker.js"
+  },
   "permissions": [
     "contextMenus",
     "tabs",
     "storage"
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "scripts/content.js"
+      ]
+    }
   ]
 }
